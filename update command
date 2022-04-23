@@ -1,0 +1,28 @@
+create table placements (id int , name varchar (20), email_id varchar (50), salary int);
+select * from placements;
+insert into placements values (101, 'abhay kumar', 'abhaykumar@gmail.com', 30000);
+insert into placements values (102, 'dipak kumar', 'dipakkumar@gmail.com', 90000);
+insert into placements values (103, 'riya kumar', 'riyakumar@gmail.com', 75000);
+insert into placements values (104, 'amruta kumar', 'amrutakumar@gmail.com', 39000);
+insert into placements values (105, 'kashish kumar', 'kashishkumar@gmail.com', 65000);
+insert into placements values (106, 'dipa kumar', 'dipakumar@gmail.com', 10000);
+insert into placements values (107, 'avinash kumar', 'avinashkumar@gmail.com', 150000);
+insert into placements values (108, 'ashish kumar', 'ashishkumar@gmail.com', 55000);
+insert into placements values (109, 'nikita kumar', 'nikitakumar@gmail.com', 70000);
+
+now for update add one column name city.
+alter table placements add city varchar (10);
+
+-UPDATE
+--1) MAKE ALL CITY COLUMN PUNE
+update placements set city ='pune';
+--2) MAKE ID 2 CITY AS MUMBAI
+update placements set city='mumbai' where id = 102;
+--3) MAKE ID 2 3 4 CITY AS MUMBAI NAGPUR AND DELHI AND BAKI JAS AHE TS
+update placements set city = (case id when 102 then 'mumbai' when 103 then 'nagpur' when 104 then 'delhi' else city end ) where id in (102,103,104);
+--4) MAKE ID 2 3 4 CITY AS MUMBAI NAGPUR AND DELHI AND BAKI SAGLE KANPUR KARA
+update placements set city = (case id when 102 then 'mumbai' when 103 then 'nagpur' when 104 then 'delhi' else 'kanpur' end );
+--5) MAKE ALL TABLE CITIES DISTINCT VALUES
+update placements set city = (case id when 102 then 'mumbai' when 103 then 'nagpur' when 104 then 'delhi'  
+                                      when 104 then 'kanpur' when 105 then 'pakpur' when 106 then 'chilli'  
+				      when 107 then 'kerala' when 108 then 'telli' when 109 then 'lite'  end );
