@@ -1,3 +1,4 @@
+intro
 Create Table customer(C_ID varchar(5) primary key ,CNAME varchar(20),Loc varchar(20))
 
 
